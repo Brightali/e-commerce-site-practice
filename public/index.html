@@ -1,61 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
 
   <title>Frontend Mentor | E-commerce product page</title>
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body class="font-poppins">
-  <header
-    class=" h-16 w-[100%] shadow-sm py-6 px-6 md:py-10 md:pb-14 lg:border-b-gray-200 lg:border-b-2 z-10 bg-mainWhite fixed top-0">
+<body class="font-poppins body">
+  <header class=" h-[80px] md:[100px] w-[100%] shadow  z-10 bg-mainWhite fixed top-0">
 
-    <div class="flex justify-between max-w-[1200px] mx-auto ">
+    <div class="flex justify-between max-w-[1200px] mx-auto h-full px-6 relative">
 
       <div class="flex justify-start gap-4 lg:gap-16 items-center">
         <div class="flex gap-4 items-center">
-          <button class="lg:hidden"><img src="../images/icon-menu.svg" class="w-5 "></button>
-          <a href="#"><img src="../images/logo.svg" alt="logo" class="w-28" /></a>
-        </div>
-        <div>
-          <ul class="nav-list  flex flex-row justify-between gap-6  text-gray-600  max-lg:hidden">
-            <li class="hover:text-darkGrayishBlue"><a href="">collections</a></li>
-            <li class="hover:text-darkGrayishBlue"><a href="">Men</a></li>
-            <li class="hover:text-darkGrayishBlue"><a href="">Women</a></li>
-            <li class="hover:text-darkGrayishBlue"><a href="">About</a></li>
-            <li class="hover:text-darkGrayishBlue"><a href="">Contact</a></li>
-          </ul>
+          <button id="open-nav-button" onclick="openNav()" class="lg:hidden"><img src="images/icon-menu.svg"
+              class="w-5 "></button>
+          <a href="index.html"><img src="images/logo.svg" alt="logo" class="w-28" /></a>
         </div>
 
+        <!-- desktop navigation  -->
+        <nav class="h-full">
+          <ul class="nav-list  flex flex-row justify-between gap-8  text-gray-600  max-lg:hidden h-full">
+            <li
+              class="hover:text-darkGrayishBlue hover:border-b-mainOrange hover:border-b-4 h-full w-24 grid items-center text-center transition-all duration-[0.4s]">
+              <a href="">collections</a>
+            </li>
+            <li
+              class="hover:text-darkGrayishBlue hover:border-b-mainOrange hover:border-b-4 h-full w-24 grid items-center text-center transition-all duration-[0.4s]">
+              <a href="">Men</a>
+            </li>
+            <li
+              class="hover:text-darkGrayishBlue hover:border-b-mainOrange hover:border-b-4 h-full w-24 grid items-center text-center transition-all duration-[0.4s] ">
+              <a href="">Women</a>
+            </li>
+            <li
+              class="hover:text-darkGrayishBlue hover:border-b-mainOrange hover:border-b-4 h-full w-24 grid items-center text-center transition-all duration-[0.4s]">
+              <a href="">About</a>
+            </li>
+            <li
+              class="hover:text-darkGrayishBlue hover:border-b-mainOrange hover:border-b-4 h-full w-24 grid items-center text-center transition-all duration-[0.4s]">
+              <a href="#footer">Contact</a>
+            </li>
+          </ul>
+        </nav>
       </div>
 
       <div class="flex gap-4 md:gap-8 items-center">
-
-        <div class=" w-8 h-8 md:w-10 md:h-10 rounded-full bg-cover  " alt="profile-image"
-          style="background-image: url(../images/image-avatar.png)">
-        </div>
-        <button>
-          <img src="../images/icon-cart.svg" alt="cart" class="w-6" />
+        <button id="show-cart" onclick="showCart()">
+          <img src="images/icon-cart.svg" alt="cart" class="w-6" />
         </button>
+        <div class=" w-8 h-8 md:w-10 md:h-10 rounded-full bg-cover  " alt="profile-image"
+          style="background-image: url(images/image-avatar.png)">
+        </div>
       </div>
 
+      <!-- Cart  -->
+      <div id="cart"
+        class="hidden w-[95%] max-w-96 min-h-[200px] max-h-[500px] overflow-y-auto rounded-lg shadow-2xl bg-mainWhite z-10 absolute top-[5rem] right-4 noScrollbar">
+        <div class="p-5 border-b border-grayishBlue">
+          <p class="font-semibold">Cart</p>
+        </div>
+
+        <div id="item-list" class="py-5 px-4 flex flex-col gap-3">
+          <div class="grid grid-cols-[60px_1fr_15px] gap-4">
+            <div id="cart-item-photo" class="rounded-md overflow-hidden">
+              <img src="images/image-product-1-thumbnail.jpg" alt="" class="max-w-[60px]">
+            </div>
+            <div class="grid items-center">
+              <p id="cart-item-name">Fall Limited Edition Sneakers</p>
+              <p id="cart-item-price">$125.00
+                <span id="cart-item-quantity">x 3</span>
+                <span id="cart-item-total-price" class="font-bold">$375.00</span>
+              </p>
+            </div>
+            <button>
+              <img src="images/icon-delete.svg" alt="" class="w-full">
+            </button>
+          </div>
+
+        </div>
+
+
+        <div class="w-full h-[70px] relative py-12">
+          <button
+            class="bg-mainOrange w-[70%] text-mainWhite h-[50px] absolute left-[50%] top-[50%] translate-y-[-50%] translate-x-[-50%] rounded-md">
+            Checkout
+          </button>
+        </div>
+      </div>
     </div>
+
+    <!-- mobile navigation   -->
+    <div id="mobile-nav" class="absolute top-0 min-h-screen w-screen navbackdrop backdrop-blur-sm hidden">
+      <div id="mobile-nav-list" class="min-h-screen w-[70%] md:w-[50%] bg-mainWhite p-10 transition-all duration-1000 ">
+        <nav class="flex flex-col gap-20">
+          <button class="w-8 h-8" onclick="closeNav()"><img src="images\icon-close.svg"></button>
+
+          <ul class="flex flex-col justify-between gap-8 font-bold text-gray-600">
+            <li class="" onclick="closeNav()">
+              <a href="">collections</a>
+            </li>
+            <li class="" onclick="closeNav()">
+              <a href="">Men</a>
+            </li>
+            <li class="" onclick="closeNav()">
+              <a href="">Women</a>
+            </li>
+            <li class="" onclick="closeNav()">
+              <a href="">About</a>
+            </li>
+            <li class="" onclick="closeNav()">
+              <a href="#footer">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+
+
   </header>
 
-
-  <!-- body section captionn and buy button  -->
-  <div class="h-screen  max-w-[1200px] mx-auto  relative px-6  bg-mainWhite bg-cover bg-center bg-new"
-    style="background-image: url(../images/hero-image.jpg)">
+  <!-- body section caption and buy button  -->
+  <div class="min-h-screen  max-w-[1200px] mx-auto  relative px-6  bg-mainWhite bg-cover bg-center bg-new"
+    style="background-image: url(images/hero-image.jpg)">
 
     <div
-      class="absolute top-[20%] translate-y-[-20%]   btw1:top-[35%] btw1:translate-y-[-35%]  lg:top-[50%] lg:translate-y-[-50%]">
+      class="absolute top-[25%] translate-y-[-25%]   btw1:top-[35%] btw1:translate-y-[-35%]  lg:top-[50%] lg:translate-y-[-50%]">
 
       <h1
         class="text-[35px] leading-[2.5rem] font-semibold mb-4 animate-reveal btw1:text-[45px] btw1:leading-[3.5rem]  md:text-[50px] lg:text-[55px] lg:leading-[4rem]">
@@ -68,88 +146,25 @@
         Find your shoes from our endless collection various collections.
       </h2>
       <button class="w-28 h-9 bg-mainOrange text-center active:bg-PaleOrange rounded-md text-mainWhite text-[14px]">
-        Explore More
+        <a href="product-page.html">Buy Now</a>
       </button>
     </div>
 
 
-    <!-- Cart  -->
-    <div
-      class="cart hidden w-[95%] max-w-96  right-2 h-[200px] max-h-[400px] rounded-lg shadow-2xl bg-mainWhite z-10 absolute top-[5rem]">
-      <div class="p-5">
-        <p class="font-semibold">Cart</p>
-      </div>
-      <div class="border-t-2 border-grayishBlue p-5"></div>
-
-      <button
-        class="bg-mainOrange w-[70%] text-mainWhite h-[50px] absolute bottom-7 left-[50%] translate-x-[-50%] rounded-md">
-        Checkout
-      </button>
-    </div>
 
   </div>
 
-  <div>
-    <!-- left image  -->
-    <div>
-
-      <!-- big thumbnail image  -->
-      <div>
-
-      </div>
-
-      <!-- smaller thumbnail images -->
-      <div>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
-        <div>
-
-        </div>
-      </div>
+  <footer id="footer" class="w-[100%] h-16 bg-mainOrange grid place-content-center text-white mt-16 md:mt-0">
+    <div class="text-center flex flex-col md:flex-row gap-1">
+      <p>Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>,
+      </p>
+      <p> Coded by <a href="#">
+          Brightali</a></p>
     </div>
-
-    <!-- descriptions on the right  -->
-    <div>
-      <!-- company name  -->
-      <p>
-
-      </p>
-      <!-- edition of item  -->
-      <p>
-
-      </p>
-      <!-- description  -->
-      <p>
-
-      </p>
-
-      <div>
-
-      </div>
-      <!-- add quantity to cart and add to cart buton  -->
-      <div>
-        <!-- plus and minus button with quantity span  -->
-        <div>
-
-        </div>
-        <!-- add to cart button  -->
-        <button>
-
-        </button>
-      </div>
-    </div>
-  </div>
-
-
-
-
+  </footer>
+  <script src="products.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

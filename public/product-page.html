@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | E-commerce product page</title>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="font-poppins">
+    <header class=" h-[80px] md:[100px] w-[100%] shadow  z-10 bg-mainWhite fixed top-0">
+
+        <div class="flex justify-between max-w-[1200px] mx-auto h-full px-6 relative">
+
+            <div class="flex justify-start gap-4 lg:gap-16 items-center">
+                <div class="flex gap-4 items-center">
+                    <button id="open-nav-button" onclick="openNav()" class="lg:hidden"><img src="images/icon-menu.svg"
+                            class="w-5 "></button>
+                    <a href="index.html"><img src="images/logo.svg" alt="logo" class="w-28" /></a>
+                </div>
+
+                <!-- desktop navigation  -->
+                <nav class="h-full">
+                    <ul class="nav-list  flex flex-row justify-between gap-8  text-gray-600  max-lg:hidden h-full">
+                        <li
+                            class="hover:text-darkGrayishBlue hover:border-b-mainOrange hover:border-b-4 h-full w-24 grid items-center text-center transition-all duration-[0.4s]">
+                            <a href="">collections</a>
+                        </li>
+                        <li
+                            class="hover:text-darkGrayishBlue hover:border-b-mainOrange hover:border-b-4 h-full w-24 grid items-center text-center transition-all duration-[0.4s]">
+                            <a href="">Men</a>
+                        </li>
+                        <li
+                            class="hover:text-darkGrayishBlue hover:border-b-mainOrange hover:border-b-4 h-full w-24 grid items-center text-center transition-all duration-[0.4s] ">
+                            <a href="">Women</a>
+                        </li>
+                        <li
+                            class="hover:text-darkGrayishBlue hover:border-b-mainOrange hover:border-b-4 h-full w-24 grid items-center text-center transition-all duration-[0.4s]">
+                            <a href="">About</a>
+                        </li>
+                        <li
+                            class="hover:text-darkGrayishBlue hover:border-b-mainOrange hover:border-b-4 h-full w-24 grid items-center text-center transition-all duration-[0.4s]">
+                            <a href="#footer">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="flex gap-4 md:gap-8 items-center">
+                <button id="show-cart" onclick="showCart()">
+                    <img src="images/icon-cart.svg" alt="cart" class="w-6" />
+                </button>
+                <div class=" w-8 h-8 md:w-10 md:h-10 rounded-full bg-cover  " alt="profile-image"
+                    style="background-image: url(images/image-avatar.png)">
+                </div>
+            </div>
+
+            <!-- Cart  -->
+            <div id="cart"
+                class="hidden w-[95%] max-w-96 min-h-[200px] max-h-[500px] overflow-y-auto rounded-lg shadow-2xl bg-mainWhite z-10 absolute top-[5rem] right-4 noScrollbar">
+                <div class="p-5 border-b border-grayishBlue">
+                    <p class="font-semibold">Cart</p>
+                </div>
+
+                <div id="item-list" class="py-5 px-4 flex flex-col gap-3">
+                    <div class="grid grid-cols-[60px_1fr_15px] gap-4">
+                        <div id="cart-item-photo" class="rounded-md overflow-hidden">
+                            <img src="images/image-product-1-thumbnail.jpg" alt="" class="max-w-[60px]">
+                        </div>
+                        <div class="grid items-center">
+                            <p id="cart-item-name">Fall Limited Edition Sneakers</p>
+                            <p id="cart-item-price">$125.00
+                                <span id="cart-item-quantity">x 3</span>
+                                <span id="cart-item-total-price" class="font-bold">$375.00</span>
+                            </p>
+                        </div>
+                        <button>
+                            <img src="images/icon-delete.svg" alt="" class="w-full">
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <div class="w-full h-[70px] relative py-12">
+                    <button
+                        class="bg-mainOrange w-[70%] text-mainWhite h-[50px] absolute left-[50%] top-[50%] translate-y-[-50%] translate-x-[-50%] rounded-md">
+                        Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- mobile navigation   -->
+        <div id="mobile-nav" class="absolute top-0 min-h-screen w-screen navbackdrop backdrop-blur-sm hidden">
+            <div id="mobile-nav-list"
+                class="min-h-screen w-[70%] md:w-[50%] bg-mainWhite p-10 transition-all duration-1000 ">
+                <nav class="flex flex-col gap-20">
+                    <button class="w-8 h-8" onclick="closeNav()"><img src="images\icon-close.svg"></button>
+
+                    <ul class="flex flex-col justify-between gap-8 font-bold text-gray-600">
+                        <li class="" onclick="closeNav()">
+                            <a href="">collections</a>
+                        </li>
+                        <li class="" onclick="closeNav()">
+                            <a href="">Men</a>
+                        </li>
+                        <li class="" onclick="closeNav()">
+                            <a href="">Women</a>
+                        </li>
+                        <li class="" onclick="closeNav()">
+                            <a href="">About</a>
+                        </li>
+                        <li class="" onclick="closeNav()">
+                            <a href="#footer">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </header>
+
+    <section id="product-info"
+        class="max-w-[1200px] mx-auto px-6 mt-28 lg:mt-10 min-h-screen flex flex-col lg:flex-row items-center gap-10 justify-center relative">
+        <!-- left image  -->
+        <div class="flex flex-col gap-8 max-w-[900px]">
+
+            <!-- big thumbnail image  -->
+            <div id="main-product-photo" class="w-full overflow-hidden rounded-xl">
+                <img src="">
+            </div>
+
+            <!-- smaller thumbnail images -->
+            <div id="product-thumbnails" class="flex gap-4">
+                <!-- <div class="rounded-md overflow-hidden max-w-36">
+                    <img src="images/image-product-1-thumbnail.jpg" alt="" class="w-full">
+                </div>
+                <div class="rounded-md overflow-hidden max-w-36">
+                    <img src="images/image-product-1-thumbnail.jpg" alt="">
+                </div>
+                <div class="rounded-md overflow-hidden max-w-36">
+                    <img src="images/image-product-1-thumbnail.jpg" alt="">
+                </div>
+                <div class="rounded-md overflow-hidden max-w-36">
+                    <img src="images/image-product-1-thumbnail.jpg" alt="">
+                </div> -->
+            </div>
+        </div>
+
+        <!-- descriptions on the right  -->
+        <div class="flex flex-col gap-6">
+            <!-- company name  -->
+            <p class="font-bold uppercase text-mainOrange">
+                Sneaker Company
+            </p>
+            <!-- edition of item  -->
+            <p class="text-3xl font-semibold max-w-[300px] btw1:max-w-[600px] lg:max-w-[300px]">
+                Fall Limited Edition Sneakers
+            </p>
+            <!-- description  -->
+            <p>
+                These low-profile sneakers are your perfect casual wear companion.
+                Featuring a durable rubber outer sole, they’ll withstand everything the
+                weather can offer.
+
+            <div>
+                <p class="flex gap-5 mb-2"><span class="font-bold text-2xl">$125.00</span> <span
+                        class="h-8 w-16 bg-PaleOrange font-semibold grid place-items-center rounded-md text-xl text-mainOrange">50%</span>
+                </p>
+                <s class="font-semibold text-gray-400">$250.00</s>
+            </div>
+            <!-- add quantity to cart and add to cart buton  -->
+            <div class=" flex flex-col smed:flex-row gap-4">
+                <!-- plus and minus button with quantity span  -->
+                <div class="bg-gray-200 max-w-60 smed:w-28 h-10 rounded-md flex justify-between items-center px-4">
+                    <button><img src="images/icon-minus.svg" alt="reduce-item-quantity"></button>
+                    <span class="font-bold">0</span>
+                    <button><img src="images/icon-plus.svg" alt="add-item-quantity"></button>
+                </div>
+                <!-- add to cart button  -->
+                <button
+                    class="max-w-60 md:w-60 max-h-10 p-4 rounded-md bg-mainOrange flex items-center justify-center gap-2 text-sm text-mainWhite drop-shadow-2xl shadow-mainOrange">
+                    <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                            fill="white" fill-rule="nonzero" />
+                    </svg> Add to cart
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <footer id="footer" class="w-[100%] h-16 bg-mainOrange grid place-content-center text-white mt-16 lg:mt-0">
+        <div class="text-center text-sm flex flex-col md:flex-row gap-1">
+            <p>Challenge by
+                <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>,
+            </p>
+            <p> Coded by <a href="#">
+                    Brightali</a></p>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -18,6 +18,7 @@ module.exports = {
       },
       screens: {
         btw1: "530px",
+        smed: "320px",
       },
     },
   },
